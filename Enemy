@@ -1,0 +1,26 @@
+
+using UnityEngine;
+
+public class Enemy : MonoBehaviour
+{
+    public Rigidbody2D rigidBody;
+
+    //control car speed
+    public float minSpeed = 0.5f;
+    public float maxSpeed = 1f;
+    public float speed = 1f;
+
+    void Start()
+    {
+        speed = Random.Range(minSpeed, maxSpeed);
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        //enemies move forward depending on the position they're facing
+        Vector2 forward = new Vector2(transform.right.x, transform.right.y);
+        rigidBody.MovePosition(rigidBody.position + forward * Time.fixedDeltaTime * speed);
+        Destroy(gameObject, 15);
+    }
+}
