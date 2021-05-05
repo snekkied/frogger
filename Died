@@ -1,0 +1,12 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class Died : MonoBehaviour
+{
+    private void OnTriggerEnter2D()
+    {
+        Debug.Log("You Died!");
+        Score.currentScore = 0;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+}
