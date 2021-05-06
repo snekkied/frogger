@@ -36,6 +36,8 @@ public class Rabbit : MonoBehaviour
         {
             //move up
             rigidBody.MovePosition(rigidBody.position + Vector2.up);
+
+            Score.currentScore += 10;
         }
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
@@ -43,6 +45,8 @@ public class Rabbit : MonoBehaviour
             if (pos.y > -4.5)
             {
                 rigidBody.MovePosition(rigidBody.position + Vector2.down);
+
+                Score.currentScore -= 10;
             }
         }
 
@@ -55,7 +59,7 @@ public class Rabbit : MonoBehaviour
         {
             Debug.Log("Game Over!");
             Score.currentScore = 0;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("GameOver");
         }
     }
 }
