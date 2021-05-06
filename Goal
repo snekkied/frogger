@@ -3,10 +3,42 @@ using UnityEngine.SceneManagement;
 
 public class Goal : MonoBehaviour
 {
+    public static int rabbitsHome = 0;
+
+    bool isRabbitHome = false;
+
+    private void Start()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+    }
+
+    private void Update()
+    {
+        if (isRabbitHome == true)
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
+        }
+    }
+
     void OnTriggerEnter2D()
     {
-        Debug.Log("You Win!");
-        Score.currentScore += 100;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (rabbitsHome < 5)
+        {
+            if (isRabbitHome == false)
+            {
+                //show rabbit in home
+                isRabbitHome = true;
+
+                Score.currentScore += 50;
+            }
+        }
+        else if (rabbitsHome >= 5)
+        {
+            Score.currentScore += 1000;
+
+            SceneManager.LoadScene("Game Over");
+        }
+
+        
     }
 }
