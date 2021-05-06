@@ -1,0 +1,35 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
+public class CountdownTimer : MonoBehaviour
+{
+    //sixty seconds to finish the game!
+    float timeLeft = 60.0f;
+
+    public Text timerText;
+
+    void Start()
+    {
+        //show timer as an int
+        timerText.text = Mathf.FloorToInt(timeLeft).ToString();
+    }
+
+    void Update()
+    {
+        //countdown from 60 to 0
+        timeLeft -= Time.deltaTime;
+
+        timerText.text = Mathf.FloorToInt(timeLeft).ToString();
+
+        //game ends when timer hits 0
+        if (timeLeft < 0)
+        {
+            Debug.Log("Game Over!");
+            Score.currentScore = 0;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+}
