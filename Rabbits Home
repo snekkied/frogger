@@ -1,0 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RabbitsHome : MonoBehaviour
+{
+    public GameObject rabbit;
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Goal.rabbitsHome += 1;
+
+        rabbit.transform.position = new Vector2(0, -4.5f);
+    }
+}
