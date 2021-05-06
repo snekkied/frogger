@@ -1,0 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class GameOver : MonoBehaviour
+{
+    public void LoadGameScene()
+    {
+        SceneManager.LoadScene("playgame");
+    }
+
+    public void LoadGameOver()
+    {
+        SceneManager.LoadScene("GameOver");
+    }
+
+    public void LoadStart()
+    {
+        SceneManager.LoadScene("Start");
+    }
+
+    public void EndGame()
+    {
+        Application.Quit();
+    }
+}
