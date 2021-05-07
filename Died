@@ -7,6 +7,6 @@ public class Died : MonoBehaviour
     {
         Debug.Log("You Died!");
         Score.currentScore = 0;
-        SceneManager.LoadScene("Game Over");
+        SceneManager.LoadScene("GameOver");
     }
 }
