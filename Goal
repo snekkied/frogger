@@ -22,6 +22,8 @@ public class Goal : MonoBehaviour
 
     void OnTriggerEnter2D()
     {
+        GetComponent<AudioSource>().Play();
+
         if (rabbitsHome < 5)
         {
             if (isRabbitHome == false)
