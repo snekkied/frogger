@@ -22,6 +22,8 @@ public class Rabbit : MonoBehaviour
             if (pos.x > -4.5 && pos.x < 3.9)
             {
                 rigidBody.MovePosition(rigidBody.position + Vector2.right);
+
+                GetComponent<AudioSource>().Play();
             }
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -30,12 +32,16 @@ public class Rabbit : MonoBehaviour
             if (pos.x > -4 && pos.x < 4.5)
             {
                 rigidBody.MovePosition(rigidBody.position + Vector2.left);
+
+                GetComponent<AudioSource>().Play();
             }
         }
         else if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             //move up
             rigidBody.MovePosition(rigidBody.position + Vector2.up);
+
+            GetComponent<AudioSource>().Play();
 
             Score.currentScore += 10;
         }
@@ -45,6 +51,8 @@ public class Rabbit : MonoBehaviour
             if (pos.y > -4.5)
             {
                 rigidBody.MovePosition(rigidBody.position + Vector2.down);
+
+                GetComponent<AudioSource>().Play();
 
                 Score.currentScore -= 10;
             }
@@ -58,8 +66,10 @@ public class Rabbit : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Debug.Log("Game Over!");
+
             Score.currentScore = 0;
+
             SceneManager.LoadScene("GameOver");
         }
-    }
+   }
 }
